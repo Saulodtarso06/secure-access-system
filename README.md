@@ -11,7 +11,7 @@ Sistema completo de autenticação de usuários com painel administrativo, desen
 - Express
 - JWT (jsonwebtoken)
 - bcryptjs
-- MySQL ou SQLite3
+- MySQL (também compativel com MariaDB)
 - dotenv
 - express-validator
 - cors
@@ -27,9 +27,9 @@ Sistema completo de autenticação de usuários com painel administrativo, desen
 
 ## Funcionalidades do Sistema
 
-- Cadastro de usuários
+- Cadastro de usuários ✅
 
-- Login com autenticação segura (JWT)
+- Login com autenticação segura (JWT) ✅
 
 - Validação de entrada (email, senha)
 
@@ -43,13 +43,11 @@ Sistema completo de autenticação de usuários com painel administrativo, desen
 
 - Logout seguro
 
-- Responsivo e moderno
+- Sistema Responsivo
 
 ---
-### Melhorias a seren implementadas:
+### 📌 Melhorias a serem implementadas:
 - Recuperação de senha por e-mail
-
-- Upload de avatar do usuário
 
 - Logs de atividade
 
@@ -81,7 +79,8 @@ secureaccess/
 
 1. Clone o repositório:
 ```bash
-git clone https://github.com/seu-usuario/secureaccess.git
+git clone https://github.com/Saulodtarso06/secure-access-system.git
+
 cd secureaccess/backend
 ```
 ---
@@ -97,8 +96,8 @@ npm run dev
 ---
 ## Autor
 
-Desenvolvido por Saulo de Tarso - fullstack developer.
+* Desenvolvido por Saulo de Tarso - fullstack developer.
 
-E-mail: saulo.detarso06@yahoo.com.br
+* E-mail: saulo.detarso06@yahoo.com.br
 
-Linkedin: https://br.linkedin.com/in/saulo-de-tarso-8a2b00133
+* Linkedin: https://br.linkedin.com/in/saulo-de-tarso-8a2b00133
