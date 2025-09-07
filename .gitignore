@@ -1,0 +1,41 @@
+# Ignora a pasta com dependências
+node_modules/
+
+# Ignora arquivos de log
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Ignora arquivos de sistema operacional
+.DS_Store
+Thumbs.db
+
+# Ignora arquivos de build ou dist
+dist/
+build/
+
+# Ignora variáveis de ambiente
+.env
+.env.local
+.env.*.local
+
+# Ignora arquivos temporários de editores
+.vscode/
+.idea/
+*.swp
+
+# Ignora arquivos de cache do Node
+.cache/
+.next/
+out/
+
+# Ignora cobertura de testes
+coverage/
+
+# Ignora arquivos gerados por ferramentas
+package-lock.json
+yarn.lock
+
+#anotações avulsas do programador
+requirements.txt
