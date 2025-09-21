@@ -1,103 +1,80 @@
 # 🛡️ SecureAccess - Sistema de Autenticação com Painel Administrativo
 
-Sistema completo de autenticação de usuários com painel administrativo, desenvolvido com Node.js, Express, React e MySQL (ou SQLite). Permite cadastro, login seguro, autenticação com JWT, painel de usuário autenticado e área de administração com controle de usuários.
+Sistema de autenticação com Node.js, Express, MongoDB, PostgreSQL (Prisma) e JWT.
 
----
+## Estrutura básica das Pastas
 
-## Tecnologias utilizadas
-
-### Backend (API REST):
-- Node.js
-- Express
-- JWT (jsonwebtoken)
-- bcryptjs
-- MySQL (também compativel com MariaDB)
-- dotenv
-- express-validator
-- cors
-
-### Frontend:
-- React
-- React Router DOM
-- Axios
-- Bootstrap (ou Tailwind)
-- Context API (para auth)
-
----
-
-## Funcionalidades do Sistema
-
-- Cadastro de usuários ✅
-
-- Login com autenticação segura (JWT) ✅
-
-- Validação de entrada (email, senha)
-
-- Proteção de rotas privadas
-
-- Painel de usuário autenticado
-
-- Painel administrativo com lista de usuários
-
-- Permissão de acesso por nível (user/admin)
-
-- Logout seguro
-
-- Sistema Responsivo
-
----
-### 📌 Melhorias a serem implementadas:
-- Recuperação de senha por e-mail
-
-- Logs de atividade
-
-- Sistema de auditoria
-
-- Deploy com Docker
----
-### Estrutura Principal do Sistema:
-```
-secureaccess/
-├── backend/
-│   ├── controllers/
-│   ├── middlewares/
-│   ├── models/
-│   ├── routes/
-│   ├── config/
-│   └── index.js
-├── frontend/
-│   ├── public/
-│   ├── src/
-│   │   ├── components/
-│   │   ├── pages/
-│   │   ├── contexts/
-│   │   └── App.js
-└── README.md
-```
----
-## Como executar o projeto na sua máquina:
-
-1. Clone o repositório:
 ```bash
-git clone https://github.com/Saulodtarso06/secure-access-system.git
+/SECUREACCESS
+│
+├── /backend
+│   ├── server.js
+│   ├── /controllers
+│   ├── /models
+│   ├── /routes
+│   ├── /middleware
+│   └── /config
+│
+├── /frontend
+│   ├── /src
+│   ├── App.jsx
+│   ├── /pages
+│   ├── /components
+│   └── /services
+│
+└── README.md│
+└── .env
+└── .gitignore
+└── package-lock.json
+└── package.json
+└── server.js
+```
+---
+## Pré-requisitos
 
-cd secureaccess/backend
-```
----
-### Instale as dependências Node:
-```
-npm install
-```
----
-### Inicie o servidor:
+- Node.js
+- MongoDB rodando localmente ou Atlas
+- PostgreSQL rodando localmente
+- Prisma CLI (`npm install prisma --save-dev`)
+
+## Instalação
+
+1. Instale as dependências:
+   ```
+   npm install
+   ```
+
+2. Configure o arquivo `.env` na raiz do projeto:
+   ```
+   PORT=5000
+   MONGO_URI=mongodb://localhost:27017/secureaccess
+   JWT_SECRET=sua_chave_secreta
+   DATABASE_URL="postgresql://usuario:senha@localhost:5432/secureaccess?schema=public"
+   ```
+
+3. Execute as migrações do Prisma:
+   ```
+   npx prisma migrate dev --name init
+   npx prisma generate
+   ```
+
+## Executando o Projeto
+
 ```
 npm run dev
 ```
----
-## Autor
 
-* Desenvolvido por Saulo de Tarso - fullstack developer.
+O servidor estará disponível em `http://localhost:5000`.
 
-* E-mail: saulo.detarso06@yahoo.com.br
+## Rotas principais
 
-* Linkedin: https://br.linkedin.com/in/saulo-de-tarso-8a2b00133
+- `POST /api/auth/register` — Cadastro de usuário
+- `POST /api/auth/login` — Login e geração de token JWT
+- `GET /api/auth/me` — Dados do usuário autenticado (requer JWT)
+- `GET /api/auth/admin-only` — Rota protegida para admin (requer JWT e role admin)
+
+## Observações
+
+- O projeto utiliza autenticação JWT.
+- O Prisma gerencia o acesso ao PostgreSQL.
+- O MongoDB é usado para persistência adicional (caso necessário).
