@@ -39,3 +39,5 @@ yarn.lock
 
 #anotações avulsas do programador
 requirements.txt
+
+/generated/prisma
