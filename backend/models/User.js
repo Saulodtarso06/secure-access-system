@@ -1,13 +1,19 @@
 // models/User.js
-class User {
-    constructor(id, name, email, password) {
-        this.id = id;
-        this.name = name;
-        this.email = email;
-        this.password = password; // senha criptografada
-    }
-}
+const mongoose = require("mongoose");
+const authController = require('../controllers/authController');
+
+const userSchema = new mongoose.Schema(
+    {
+        name: { type: String, required: true, trim: true },
+        email: { type: String, required: true, unique: true, lowercase: true, trim: true },
+        password: { type: String, required: true },
+        role: { type: String, enum: ["user", "admin"], default: "user" }
+    },
+    { timestamps: true }
+);
 
 const users = []; // armazenando usuários em memória (substituir por banco depois)
 
-module.exports = { User, users };
+module.exports = mongoose.model("User", userSchema);
+
+
